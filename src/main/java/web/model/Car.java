@@ -1,5 +1,7 @@
 package web.model;
 
+import java.util.Objects;
+
 public class Car {
 
     private double engine;
@@ -43,5 +45,18 @@ public class Car {
                 ", model='" + model + '\'' +
                 ", mileage=" + mileage +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Car)) return false;
+        Car car = (Car) o;
+        return Double.compare(getEngine(), car.getEngine()) == 0 && getMileage() == car.getMileage() && Objects.equals(getModel(), car.getModel());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getEngine(), getModel(), getMileage());
     }
 }

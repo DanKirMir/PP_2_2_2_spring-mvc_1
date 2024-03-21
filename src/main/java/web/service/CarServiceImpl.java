@@ -1,16 +1,18 @@
 package web.service;
 
+import org.springframework.stereotype.Service;
 import web.model.Car;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class CarServiceImpl implements CarService {
 
     private List<Car> carsList;
 
-    public CarServiceImpl () {
+    public CarServiceImpl() {
         carsList = new ArrayList<>();
         carsList.add(new Car(1.6, "Urus", 1000));
         carsList.add(new Car(1.7, "Urus1", 2000));
@@ -18,7 +20,7 @@ public class CarServiceImpl implements CarService {
         carsList.add(new Car(1.9, "Urus3", 4000));
         carsList.add(new Car(2.0, "Urus4", 5000));
     }
-
+    @Override
     public List<Car> getCarsList() {
         return carsList;
     }
